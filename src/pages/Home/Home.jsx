@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom';
 function Home() {
 
   const category = useParams().id
-  console.log(category)
   const { products, userInput, setUserInput } = useContext(CartCTX);
   
   const filterByTitle = (filteredProducts) => {
@@ -33,7 +32,7 @@ function Home() {
         const filteredProductsToRender = filterByTitle(products)
         return filteredProductsToRender.map(product => <Card key={product.id} product={product} />)
       } else {
-        return products.map(product => <Card key={product.id} product={product} />)
+        return products.slice(0,36).map(product => <Card key={product.id} product={product} />)
       }
     }
   }
